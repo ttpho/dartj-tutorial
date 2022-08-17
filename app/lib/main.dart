@@ -82,7 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 }
 
                 if (snapshot.hasError) {
-                  return Text("Error ${snapshot.error?.toString()}");
+                  return Text(
+                      "Error ${_userRepository?.runtimeType.toString()} ${snapshot.error?.toString()}");
                 }
 
                 return const Center(

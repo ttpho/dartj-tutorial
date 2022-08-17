@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:app/base_response.dart';
 import 'package:app/user.dart';
 import 'package:app/user_repository.dart';
 import 'package:http/http.dart' as http;
@@ -9,8 +10,8 @@ class HttpRequest implements UserRepository {
   Future<List<User>?> fetchUser() async {
     final response =
         await http.get(Uri.parse("https://jsonplaceholder.typicode.com/users"));
-    final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
+    final parsed = json.decode(response.body);
 
-    return parsed.map<User>((json) => User.fromJson(json)).toList();
+    return BaseResponse.fromJson<List<User>?>(parsed, (User).toString());
   }
 }
