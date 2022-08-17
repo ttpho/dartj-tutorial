@@ -12,4 +12,4 @@ https://ttpho.github.io/2022-08-07-dartj/
 
 ### Screenshot 
 
-<img src="/Screenshot_2022-08-07-15-51-47-504_com.ttpho.app.jpg" />
+<img src="/Screenshot_2022-08-07-15-51-47-504_com.ttpho.app.jpg" width = 200/>
