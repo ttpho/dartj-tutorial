@@ -41,6 +41,11 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter++;
       _userRepository = _counter.isEven ? DioRequest() : HttpRequest();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Use ${_userRepository?.runtimeType.toString()}"),
+        ),
+      );
     });
   }
 
