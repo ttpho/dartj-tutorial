@@ -16,7 +16,7 @@ class DioRequest implements UserRepository {
   Future<List<User>?> fetchUser() async {
     final Response<List<dynamic>> response = await _dio.get("/users");
 
-    return BaseResponse.fromJsonMore<List<User>?, User>(
+    return BaseResponse.fromJson<List<User>?, User>(
       response.data,
       ((json) => User.fromJson(json)),
     );
