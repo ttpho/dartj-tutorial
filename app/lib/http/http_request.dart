@@ -12,7 +12,7 @@ class HttpRequest implements UserRepository {
         await http.get(Uri.parse("https://jsonplaceholder.typicode.com/users"));
     final parsed = json.decode(response.body);
 
-    return BaseResponse.fromJsonMore<List<User>?, User>(
+    return BaseResponse.fromJson<List<User>?, User>(
       parsed,
       ((json) => User.fromJson(json)),
     );

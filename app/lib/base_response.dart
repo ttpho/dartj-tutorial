@@ -1,5 +1,26 @@
+import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart' as dio;
+
+import 'dart:convert';
+
 class BaseResponse<T, R> {
-  static T fromJsonMore<T, R>(
+  static T fromJsonDioResponse<T, R>(
+    dio.Response response,
+    R Function(Map<String, dynamic>) fromJson,
+  ) {
+    final object = response.data;
+    return BaseResponse.fromJson(object, fromJson);
+  }
+
+  static T fromJsonHttpResponse<T, R>(
+    http.Response response,
+    R Function(Map<String, dynamic>) fromJson,
+  ) {
+    final object = json.decode(response.body);
+    return BaseResponse.fromJson(object, fromJson);
+  }
+
+  static T fromJson<T, R>(
     Object? json,
     R Function(Map<String, dynamic>) fromJson,
   ) {
